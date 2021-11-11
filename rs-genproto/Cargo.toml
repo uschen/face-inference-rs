@@ -1,0 +1,23 @@
+[package]
+name = "rsproto"
+version = "0.1.0"
+authors = ["Chen Liang <1@chen.dev>"]
+edition = "2018"
+
+[lib]
+name = 'rsproto'
+path = 'src/lib.rs'
+
+[dependencies]
+
+prost = '0.6'
+prost-types = '0.6'
+tonic = '0.3.1'
+http = "0.2.1"
+
+[build-dependencies]
+glob = '0.3.0'
+regex = '1.1'
+bytes = '0.5'
+prost-build = "0.6"
+tonic-build = '0.3.1'

@@ -1,0 +1,10 @@
+[package]
+name = "retinafacers"
+version = "0.1.0"
+authors = ["Chen Liang <1@chen.dev>"]
+edition = "2018"
+
+exclude = ["build/**/*", "libretinaface/build/**/*"]
+
+[build-dependencies]
+cmake = "0.1.44"

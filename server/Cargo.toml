@@ -1,0 +1,42 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["Chen Liang <1@chen.dev>"]
+edition = "2018"
+
+[lib]
+path = 'src/lib.rs'
+test = true
+doctest = false
+edition = '2018'
+
+[[bin]]
+name = "inferserver"
+path = "bin/infer_server.rs"
+
+[dependencies]
+log = "0.4"
+env_logger = "0.7.1"
+clap = "~2.27.0"
+bytes = "0.6"
+retinafacers = { path = "../retinaface", version = "0.1.0" }
+rsproto = { path = "../rs-genproto" }
+
+glib = { git = "https://github.com/gtk-rs/glib" }
+
+tonic = '0.3.1'
+prost-types = '0.6'
+prost = '0.6'
+tokio = { version = "0.2.22", features = ["full"] }
+futures = { version = "0.3", default-features = false, features = ["alloc"] }
+# async-stream = "0.3.0"
+
+slog = "2.5.2"
+slog-json = "2.3.0"
+slog-async = "2.5.0"
+slog-term = "2.6.0"
+
+[dependencies.opencv]
+version = "0.46"
+features = ["opencv-4", "contrib", "buildtime-bindgen"]
+default-features = false

@@ -1,0 +1,12 @@
+[workspace]
+
+members = [
+    "server",
+    "retinaface",
+    "rs-genproto",
+]
+
+[profile.release]
+opt-level = 3
+lto = true
+debug = false

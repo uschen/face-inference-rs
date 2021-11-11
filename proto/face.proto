@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package v1.face;
+
+message RetinaArcFace {
+  int32 original_image_width = 1;
+  int32 original_image_height = 2;
+
+  repeated RetinafaceDetection faces = 20;
+}
+
+message RetinafaceDetection {
+  // Bound Box is within original image_w and h
+  BBox bbox = 1;
+
+  float class_confidence = 20;
+
+  RetinafaceLandmark landmarks = 30;
+
+  // 512 array of float32
+  repeated float arcface_feature = 40;
+
+  int32 retina_engine_version = 50;
+  int32 arcface_engine_version = 51;
+}
+
+message RetinafaceLandmark {
+  float left_eye_x = 1;
+  float left_eye_y = 2;
+  float right_eye_x = 10;
+  float right_eye_y = 11;
+  float nose_x = 20;
+  float nose_y = 21;
+  float mouth_left_corner_x = 30;
+  float mouth_left_corner_y = 31;
+  float mouth_right_corner_x = 32;
+  float mouth_right_corner_y = 33;
+}
+
+message BBox {
+  int32 x1 = 1;
+  int32 y1 = 2;
+  int32 x2 = 3;
+  int32 y2 = 4;
+}

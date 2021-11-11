@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package v1.infer;
+
+import "face.proto";
+
+service InferV1 {
+  // RetinaArcFaceFile -
+  rpc RetinaArcFaceFile(RetinaArcFaceFileRequest)
+      returns (RetinaArcFaceFileResponse) {}
+
+  // RetinaArcFaceBlob takes image bytes
+  rpc RetinaArcFaceBlob(RetinaArcFaceBlobRequest)
+      returns (RetinaArcFaceFileResponse) {}
+}
+
+message RetinaArcFaceFileRequest { string path = 1; }
+
+message RetinaArcFaceFileResponse { v1.face.RetinaArcFace face = 1; }
+
+message RetinaArcFaceBlobRequest { bytes blob = 1; }
